@@ -22,7 +22,15 @@ export default function LoginForm({setLogin, setSignUp}) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    axios.post("/user/login", userInput)
+    fetch("/user/login", 
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: userInput}
+   )
       .then((response) => {
         
         if(response.data.login){
