@@ -1,6 +1,7 @@
 import React, { useState ,useContext} from "react";
 import axios from "axios";
 import { Context } from "../context/context";
+import baseUrl from  "../../config"
 
 export default function LoginForm({setLogin, setSignUp}) {
   const {  setIsLogin,  setUserInfo} = useContext(Context)
@@ -22,15 +23,7 @@ export default function LoginForm({setLogin, setSignUp}) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    fetch("/user/login", 
-    {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: "POST",
-      body: userInput}
-   )
+    axios.post(baseUrl+ "/user/login", userInput)
       .then((response) => {
         
         if(response.data.login){
