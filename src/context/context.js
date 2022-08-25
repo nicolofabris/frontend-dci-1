@@ -1,4 +1,7 @@
+import baseUrl from '../config'
+
 const { createContext, useState, useEffect } = require("react");
+
 
 
 const Context = createContext()
@@ -11,7 +14,7 @@ function ContextProvider({children}) {
         , [cart, setCart] = useState([])
 
         useEffect(()=>{
-          fetch('http://localhost:5001/product/all')
+          fetch(baseUrl+'/product/all')
           .then(res=>res.json(res))
           .then(data=>setAllProducts(data))
         }, [updateProductList])
