@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 // import { useState } from 'react'
 import { useContext } from 'react'
 import { Context } from '../context/context'
+import baseUrl from '../config'
 
 export default function HeaderLogined() {
 
@@ -18,7 +19,7 @@ export default function HeaderLogined() {
     // for updating a product
 
     const confirmUpdateHandler = (id, index) =>{
-        fetch('/product/update', {
+        fetch(baseUrl+'/product/update', {
             method: 'POST',
             body: JSON.stringify({...editInput, _id:id}),
             headers: {
