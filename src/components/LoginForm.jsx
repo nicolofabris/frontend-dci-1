@@ -22,7 +22,7 @@ export default function LoginForm({setLogin, setSignUp}) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    axios.post("http://backend-dci-1.herokuapp.com/user/login", userInput)
+    axios.post("/user/login", userInput)
       .then((response) => {
         
         if(response.data.login){
