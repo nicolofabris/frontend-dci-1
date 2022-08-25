@@ -1,7 +1,7 @@
 import React, { useState ,useContext} from "react";
 import axios from "axios";
 import { Context } from "../context/context";
-import baseUrl from  "../../config"
+import baseUrl from  "../config"
 
 export default function LoginForm({setLogin, setSignUp}) {
   const {  setIsLogin,  setUserInfo} = useContext(Context)
@@ -23,7 +23,7 @@ export default function LoginForm({setLogin, setSignUp}) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    axios.post(baseUrl+ "/user/login", userInput)
+    axios.post(baseUrl+"/user/login", userInput)
       .then((response) => {
         
         if(response.data.login){
