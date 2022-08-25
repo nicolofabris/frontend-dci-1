@@ -1,5 +1,6 @@
 import React, { useState ,useContext } from 'react'
 import { Context } from "../context/context";
+import baseUrl from '../config'
 
 export default function SignUpForm({setSignUp, setLogin}) {
 
@@ -25,7 +26,7 @@ export default function SignUpForm({setSignUp, setLogin}) {
     const signUpHandler = e =>{
         e.preventDefault();
         // console.log(userInput)
-        fetch('/user/signup', {
+        fetch(baseUrl+'/user/signup', {
         method: 'POST',
         body: JSON.stringify(userInput),
         headers: {
@@ -47,7 +48,7 @@ export default function SignUpForm({setSignUp, setLogin}) {
 
     const addFakeUser = e =>{
         e.preventDefault();
-        fetch('/user/add')
+        fetch(baseUrl+'/user/add')
         .then((response) => response.json())
         .then((json) => {
             if(json.err) alert(json.err)

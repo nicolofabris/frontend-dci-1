@@ -1,13 +1,14 @@
 import React from 'react'
 import { useContext } from 'react'
 import { Context } from '../context/context'
+import baseUrl from '../config'
 
 export default function Product() {
   const {allProducts, isLogin, setCart, setUpdateProductList} = useContext(Context)
  
   const addToCartHandler = product =>{
     if(product.quantity>0){
-      fetch('/product/addToCart/'+ product._id)
+      fetch(baseUrl+'/product/addToCart/'+ product._id)
         .then(res=>res.json(res))
         .then(data=>{
             setUpdateProductList(pre=>+pre-1)

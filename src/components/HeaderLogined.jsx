@@ -77,7 +77,7 @@ export default function HeaderLogined() {
 
     // for showing the products added by current user
     const showUserProduct = e =>{
-        fetch('/product/allByUser/'+ userInfo.id)
+        fetch(baseUrl+'/product/allByUser/'+ userInfo.id)
         .then(res=>res.json(res))
         .then(data=>{
             const newData = data.map(el=>{
